@@ -1,5 +1,11 @@
 const { readTasks, writeTasks } = require('./fileService');
 
+
+/**
+ *
+ *
+ * @param {description} description of the task
+ */
 const addTask = (description) => {
     const tasks = readTasks();
     const newTask = {
@@ -14,6 +20,14 @@ const addTask = (description) => {
     console.log("Task added successfully!");
 };
 
+
+/**
+ *
+ *
+ * @param {*} id of the task
+ * @param {*} description of the task
+ * @return {*} 
+ */
 const updateTask = (id, description) => {
     const tasks = readTasks();
     const task = tasks.find(t => t.id ==id);
@@ -26,6 +40,12 @@ const updateTask = (id, description) => {
     console.log("Task updated successfully!");
 };
 
+
+/**
+ *
+ *
+ * @param {*} id of the task
+ */
 const deleteTask = (id) => {
     let tasks = readTasks();
     tasks = tasks.filter(t => t.id != id);
@@ -33,6 +53,14 @@ const deleteTask = (id) => {
     console.log("Task deleted successfully!");
 };
 
+
+/**
+ *
+ *
+ * @param {*} id of the task
+ * @param {*} status of the task
+ * @return {*} 
+ */
 const markStatus = (id, status) => {
     const tasks = readTasks();
     const task = tasks.find(t => t.id == id);
@@ -45,6 +73,12 @@ const markStatus = (id, status) => {
     console.log("Task status updated successfully!");
 };
 
+
+/**
+ *
+ *
+ * @param {*} [status=null] of the task
+ */
 const listTasks = (status = null) => {
     const tasks = readTasks();
     const filteredTasks = tasks.find(t => t.status == status);
